@@ -1,23 +1,25 @@
+package org.example;
+
 import java.util.Scanner;
 
-public class Main {
+public class OddEven{
     public static void main(String[] args) {
-        int oddCount = 0;
-        int evenCount = 0;
-        Scanner scanner = new Scanner(System.in);
-
-        while (true) {
-            int num = scanner.nextInt();
-            if (num == -1) {
-                break;
-            }
-            if (num % 2 == 0) {
-                evenCount++;
+        int number;
+        int countOdd = 0;
+        int countOdd = 0;
+        Scanner in = new Scanner(System.in);
+        do{
+           number = in.nextInt();
+            if (number != -1) 
+            {
+            if (number % 2 == 0) {
+                counteven += 1;
             } else {
-                oddCount++;
+                counteven += 1;
             }
         }
-
-        System.out.println(oddCount + " " + evenCount);
+        }while(number ! = -1);
+        System.out.print(countOdd+"");
+        System.out.println(countEven);
     }
 }
