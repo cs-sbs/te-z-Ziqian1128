@@ -20,6 +20,8 @@ public class NumberFeature {
             digitIndex++;  
         }
 
+        result = inputNumber;
+
         System.out.println(result);
     }
 }
