@@ -8,18 +8,30 @@ public class NumberFeature {
         int result = 0; // 输出结果
         Scanner in = new Scanner(System.in);
         inputNumber = in.nextInt();
-        int digitIndex = 1;  
-        while (inputNumber > 0) {  
+
+        int binary = 0;
+        int multiplier = 1;
+        while (inputNumber > 0) {
             int digit = inputNumber % 10;
-            if ((digit % 2 == 0 && digitIndex % 2 == 0) || (digit % 2!= 0 && digitIndex % 2!= 0)) {  
-                result = result * 2 + 1;  
-            } else {
-                result *= 2;  
-            }
+            int parity = digit % 2;
+            binary += parity * multiplier;
+            multiplier *= 2;
             inputNumber /= 10;
-            digitIndex++;  
         }
 
+        // 将二进制转换为十进制
+        int decimal = 0;
+        multiplier = 1;
+        while (binary > 0) {
+            int bit = binary % 10;
+            decimal += bit * multiplier;
+            multiplier *= 2;
+            binary /= 10;
+        }
+
+        result = decimal;
+
         System.out.println(result);
+        in.close();
     }
 }
