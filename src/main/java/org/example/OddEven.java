@@ -7,17 +7,19 @@ public class OddEven {
         int number;
         int countOdd = 0;
         int countEven = 0;
-        Scanner in = new Scanner(System.in);
-
-        while ((number = in.nextInt())!= -1) {
-            if (number % 2 == 1) {
-                countOdd++;
-            } else {
-                countEven++;
+        Scanner in = new Scanner(System.in); // 数字用空格或换行隔开，每次读入一个，直到输入‘-1’
+        do{
+            number = in.nextInt();
+            if(number != -1)
+            {
+                if (number % 2 == 0) {
+                    countEven += 1;
+                } else {
+                    countOdd += 1;
+                }
             }
-        }
-
-        System.out.println(countOdd + " " + countEven);
-        in.close();
+        }while(number != -1); // 理解do while和while循环的区别
+        System.out.print(countOdd+" ");
+        System.out.println(countEven);
     }
 }
