@@ -8,30 +8,25 @@ public class NumberFeature {
         int result = 0; // 输出结果
         Scanner in = new Scanner(System.in);
         inputNumber = in.nextInt();
+        // 你的代码逻辑
 
-        int binary = 0;
-        int multiplier = 1;
+        digital_eigenvalue(inputNumber, result);
+
+
+    }
+
+    public static void digital_eigenvalue(int inputNumber, int result) {
+        int number;
+        int digit_position = 1;
+        int binary_bit_value = 1;
         while (inputNumber > 0) {
-            int digit = inputNumber % 10;
-            int parity = digit % 2;
-            binary += parity * multiplier;
-            multiplier *= 2;
-            inputNumber /= 10;
+            number = inputNumber % 10;
+            inputNumber = inputNumber / 10;
+            if (number % 2 == digit_position % 2)
+                result += binary_bit_value;
+            binary_bit_value *= 2;
+            digit_position++;
         }
-
-        // 将二进制转换为十进制
-        int decimal = 0;
-        multiplier = 1;
-        while (binary > 0) {
-            int bit = binary % 10;
-            decimal += bit * multiplier;
-            multiplier *= 2;
-            binary /= 10;
-        }
-
-        result = decimal;
-
         System.out.println(result);
-        in.close();
     }
 }
